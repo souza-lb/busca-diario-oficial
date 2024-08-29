@@ -1,0 +1,1 @@
+pip install selenium==4.23.1 requests==2.32.3 PyPDF2==3.0.1 schedule==1.2.2
