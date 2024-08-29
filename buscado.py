@@ -96,12 +96,10 @@ verifica_do()
 
 print(f"Pressione CTRL+C para ENCERRAR o programa.")
 # Define os horários de execução
-schedule.every().day.at("17:20").do(verifica_do)
-schedule.every().day.at("17:25").do(verifica_do)
-schedule.every().day.at("17:30").do(verifica_do)
-schedule.every().day.at("17:35").do(verifica_do)
-schedule.every().day.at("17:40").do(verifica_do)
-schedule.every().day.at("17:45").do(verifica_do)
+schedule.every().day.at("08:05").do(verifica_do)
+schedule.every().day.at("12:05").do(verifica_do)
+schedule.every().day.at("16:05").do(verifica_do)
+schedule.every().day.at("18:05").do(verifica_do)
 
 # Loop contínuo para verificar e executar tarefas agendadas
 while True:
