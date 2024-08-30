@@ -36,6 +36,6 @@ foi elaborado para uso com o Firefox. Com algumas alterações você também pod
 agendamentos e sobrecarregar o site.</b>
 
 Este tutorial foi elaborado por <b>Leonardo Bruno</b><p>
-<b>202301011744@alunos.estacio.br</b>
+<b>souzalb@proton.me</b>
 
 Encontrou algum erro? Sugestões?
