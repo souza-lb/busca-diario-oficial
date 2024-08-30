@@ -140,7 +140,7 @@ def busca_do():
             driver.quit()
 
 # Configuração do agendamento.
-horarios = ["17:15", "17:20", "17:25", "17:30"]
+horarios = ["06:05", "12:05", "16:05", "18:05"]
 for hora in horarios:
     schedule.every().day.at(hora).do(busca_do)
 
