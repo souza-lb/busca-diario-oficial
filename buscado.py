@@ -105,10 +105,11 @@ def enviar_mensagem_telegram(mensagem):
     requisicao = {"chat_id": CHAT_ID, "text": mensagem}
     try:
         resposta = requests.post(url, data=requisicao, timeout=10)
+        logging.info(f"Resposta API Telegram: {resposta}")
         reposta.raise_for_status()
         logging.info(f"Mensagem Telegram enviada com sucesso.")
     except requests.RequestException as erro:
-        logging.error(f"Erro ao enviar mensagem Telegram.")
+        logging.error(f"Erro ao enviar mensagem Telegram: {erro}")
 
 # Função principal.
 def busca_do():
