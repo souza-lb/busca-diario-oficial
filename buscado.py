@@ -128,7 +128,7 @@ def enviar_email(mensagem):
         envio["To"] = EMAIL_DESTINATARIO
         envio["Subject"] = f"Atualização Diário Oficial {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
         # Corpo mensagem.
-        envio.attach(MIMEText(mesangem, "plain"))
+        envio.attach(MIMEText(mensagem, "plain"))
         # Conexão com servidor.
         with smtplib.SMTP("smt.gmail.com", 587 as server):
             server.starttls()
