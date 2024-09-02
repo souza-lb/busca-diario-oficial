@@ -130,7 +130,7 @@ def enviar_email(mensagem):
         # Corpo mensagem.
         envio.attach(MIMEText(mensagem, "plain"))
         # Conexão com servidor.
-        with smtplib.SMTP("smt.gmail.com", 587 as server):
+        with smtplib.SMTP("smt.gmail.com", 587) as server:
             server.starttls()
             server.login(EMAIL, SENHA_EMAIL)
             server.send_mesage(envio)
