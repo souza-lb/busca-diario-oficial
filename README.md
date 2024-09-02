@@ -1,6 +1,6 @@
 <h1 align=center>Busca Diário Oficial</h1>
 
-<p align="justify">Este repositório inclui o código para busca de dados em um site e envio de notificações via Telegram.</p>
+<p align="justify">Este repositório inclui o código para busca de dados em um site e envio de notificações via Telegram, E-mail e Janela Tk.</p>
 
 Há basicamente 2 arquivos: 
 
@@ -20,6 +20,17 @@ Lembre também de criar o seu bot Telegram usando o botFather. Obtenha seu TOKEN
 TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
 CHAT_ID = 'XXXXXXXXXXXX'
 ```
+Lembre de incluir também dados da conta para envio de E-mail. 
+Se você utiliza autenticação de dois fatores, crie uma senha específica para uso no app.
+
+```
+# Dados e-mail
+EMAIL = "souzalb01@gmail.com"
+SENHA_EMAIL = "evyk ifdk khdf zxwk" 
+EMAIL_DESTINATARIO = "souzalb@proton.me"
+```
+
+
 
 Não esqueça de incluit também seu nome na busca.
 Escreva com as primeiras letras de nome e sobrenome em caixa alta
