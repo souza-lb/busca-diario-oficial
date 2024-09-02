@@ -116,7 +116,7 @@ def enviar_mensagem_telegram(mensagem):
         resposta = requests.post(url, data=requisicao, timeout=10)
         logging.info(f"Resposta API Telegram: {resposta}")
         resposta.raise_for_status()
-        logging.info(f"Mensagem Telegram enviada com sucesso.")
+        logging.info(f"Mensagem Telegram enviada para: {CHAT_ID}")
     except requests.RequestException as erro:
         logging.error(f"Erro ao enviar mensagem Telegram: {erro}")
 
@@ -134,7 +134,7 @@ def enviar_email(mensagem):
             server.starttls()
             server.login(EMAIL, SENHA_EMAIL)
             server.send_message(envio)
-        logging.info(f"E-mail enviado para: {EMAIL_DESTINATARIO}")
+        logging.info(f"Mensagem e-mail enviada para: {EMAIL_DESTINATARIO}")
     except Exception as erro:
         logging.error(f"Erro ao enviar e-mail: {erro}")
 
