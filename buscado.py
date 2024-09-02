@@ -11,6 +11,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
 import tkinter as tk
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 # Configuração do logger
 pasta_log = "log"
@@ -32,6 +35,12 @@ NOME = "Nome para busca"
 # Dados bot Telegram.
 TOKEN = "Seu Token para o Bot Telegram"
 CHAT_ID = "Chat id do seu usuário"
+
+# Dados e-mail.
+EMAIL = "gmail para envio de mensagem"
+# Caso utilize autenticação em duas etapas, crie uma senha especígica para o app.
+SENHA_EMAIL = "senha para envio mensagem gmail"
+EMAIL_DESTINATARIO = ""
 
 # Função para configuração do driver.
 def configurar_driver():
@@ -111,6 +120,24 @@ def enviar_mensagem_telegram(mensagem):
     except requests.RequestException as erro:
         logging.error(f"Erro ao enviar mensagem Telegram: {erro}")
 
+# Função para envio de e-mail.
+def enviar_email(mensagem):
+    try:
+        envio = MIMEMultipart()
+        envio["From"] = EMAIL
+        envio["To"] = EMAIL_DESTINATARIO
+        envio["Subject"] = f"Atualização Diário Oficial {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
+        # Corpo mensagem.
+        envio.attach()MIMEText(mesangem, "plain")
+        # Conexão com servidor.
+        with smtplib.SMTP("smt.gmail.com", 587 as server):
+            server.starttls()
+            server.login(EMAIL, SENHA_EMAIL)
+            server.send_mesage(envio)
+        logging.info(f"E-mail enviado para: {EMAIL_DESTINATARIO}")
+    except Exception as erro:
+        logging.error(f"Erro ao enviar e-mail: {erro}")
+
 # Função principal.
 def busca_do():
     driver = None
@@ -136,6 +163,7 @@ def busca_do():
         logging.info(mensagem)
         mostrar_janela(mensagem)
         enviar_mensagem_telegram(mensagem)
+        enviar_email(mensagem)
     finally:
         if driver:
             driver.quit()
