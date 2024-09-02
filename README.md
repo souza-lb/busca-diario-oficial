@@ -38,7 +38,7 @@ Escreva com as primeiras letras de nome e sobrenome em caixa alta
 nome = "Escreva o Seu Nome Completo Aqui"
 ```
 
-Para alterar o agendamento modifique o techo abaixo
+Para alterar o agendamento modifique o trecho abaixo:
 
 ```
 # Configuração do agendamento.
