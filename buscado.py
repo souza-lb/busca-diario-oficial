@@ -38,7 +38,7 @@ CHAT_ID = "Chat id do seu usuário"
 
 # Dados e-mail.
 EMAIL = "gmail para envio de mensagem"
-# Caso utilize autenticação em duas etapas, crie uma senha especígica para o app.
+# Caso utilize autenticação em duas etapas, crie uma senha específica para o app.
 SENHA_EMAIL = "senha para envio mensagem gmail"
 EMAIL_DESTINATARIO = ""
 
@@ -128,7 +128,7 @@ def enviar_email(mensagem):
         envio["To"] = EMAIL_DESTINATARIO
         envio["Subject"] = f"Atualização Diário Oficial {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
         # Corpo mensagem.
-        envio.attach()MIMEText(mesangem, "plain")
+        envio.attach(MIMEText(mesangem, "plain"))
         # Conexão com servidor.
         with smtplib.SMTP("smt.gmail.com", 587 as server):
             server.starttls()
