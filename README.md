@@ -30,14 +30,21 @@ SENHA_EMAIL = "evyk ifdk khdf zxwk"
 EMAIL_DESTINATARIO = "souzalb@proton.me"
 ```
 
-
-
 Não esqueça de incluit também seu nome na busca.
 Escreva com as primeiras letras de nome e sobrenome em caixa alta
 
 ```
 # Efetua busca de ocorrência de texto no arquivo
 nome = "Escreva o Seu Nome Completo Aqui"
+```
+
+Para alterar o agendamento modifique o techo abaixo
+
+```
+# Configuração do agendamento.
+horarios = ["08:05", "12:05", "16:05", "18:05"]
+for hora in horarios:
+    schedule.every().day.at(hora).do(busca_do)
 ```
 
 Observe os comentários com atenção. Por padrão não utilizei a opção headless. Atenção também ao fato que esse código
