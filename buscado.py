@@ -40,7 +40,7 @@ CHAT_ID = "Insira o Chat Id do Telegram"
 EMAIL = "Insira o Email para envio da notificação"
 # Para criar uma senha de app verifique: https://support.google.com/accounts/answer/185833?hl=pt-BR&sjid=12175728218878972913-SA
 SENHA_EMAIL = "Insira a Senha do E-mail para envio da notificação"
-EMAIL_DESTINATARIO = "souzalb@proton.me"
+EMAIL_DESTINATARIO = "Insira o E-mail para receber a notificação"
 
 # Função para configuração do driver.
 def configurar_driver():
