@@ -133,7 +133,7 @@ def enviar_email(mensagem):
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
             server.login(EMAIL, SENHA_EMAIL)
-            server.send_mesage(envio)
+            server.send_message(envio)
         logging.info(f"E-mail enviado para: {EMAIL_DESTINATARIO}")
     except Exception as erro:
         logging.error(f"Erro ao enviar e-mail: {erro}")
