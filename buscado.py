@@ -108,19 +108,26 @@ def mostrar_janela(mensagem):
     janela_thread = Thread(target=run)
     janela_thread.start()
 
-# Função para envio de mensagem Telegram.
-def enviar_mensagem_telegram(mensagem):
+# Função para envio de mensagem Telegram e arquivo PDF.
+def enviar_mensagem_telegram(mensagem, caminho_arquivo):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    requisicao = {"chat_id": CHAT_ID, "text": mensagem}
+    dados_mensagem = {"chat_id": CHAT_ID, "text": mensagem}
     try:
-        resposta = requests.post(url, data=requisicao, timeout=10)
-        logging.info(f"Resposta API Telegram: {resposta}")
-        resposta.raise_for_status()
+        resposta_mensagem = requests.post(url, data=requisicao, timeout=10)
+        logging.info(f"Resposta API Telegram: {resposta_mensagem}")
+        resposta_mensagem.raise_for_status()
         logging.info(f"Mensagem Telegram enviada para: {CHAT_ID}")
+
+        url_arquivo = f"https://api.telegram.org/bot{TOKEN}/sendDocument"
+        with open(caminho_arquivo, "rb") as arquivo:
+            arquivos = {"document": arquivo}
+            resposta_arquivo = requests.post(url_arquivo, data={"chat_id: CHAT_ID"}, files=arquivos, timeout=10)
+            reposta_arquivo.raise_for_status()
+            logging.info(f"Arquivo Telegram enviado para: {CHAT_ID}")
     except requests.RequestException as erro:
         logging.error(f"Erro ao enviar mensagem Telegram: {erro}")
 
-# Função para envio de e-mail.
+# Função para envio de e-mail com PDF anexado.
 def enviar_email(mensagem):
     try:
         envio = MIMEMultipart()
@@ -129,6 +136,12 @@ def enviar_email(mensagem):
         envio["Subject"] = f"Atualização Diário Oficial {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"
         # Corpo mensagem.
         envio.attach(MIMEText(mensagem, "plain"))
+        # Adiciona PDF como anexo.
+        if caminho_arquivo:
+            with open(caminho_arquivo, "rb") as arquivo_pdf:
+               anexo = MIMEApplication(arquivo_pdf.read(), _subtype="pdf")
+                anexo.add_header('Content-Disposition', 'attachment', filename=os.path.basename(caminho_arquivo))
+                envio.attach(anexo) 
         # Conexão com servidor.
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
@@ -164,8 +177,8 @@ def busca_do():
                         f"Última verificação em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
         logging.info(mensagem)
         mostrar_janela(mensagem)
-        enviar_mensagem_telegram(mensagem)
-        enviar_email(mensagem)
+        enviar_mensagem_telegram(mensagem, caminho_arquivo)
+        enviar_email(mensagem, caminho_arquivo)
     finally:
         if driver:
             driver.quit()
