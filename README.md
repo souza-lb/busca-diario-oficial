@@ -10,7 +10,7 @@ Há basicamente 2 arquivos:
 Antes de rodar instale as bibliotecas listadas no arquivo dependencias.txt.
 
 ```bash
-pip install selenium==4.23.1 requests==2.32.3 PyPDF2==3.0.1 schedule==1.2.2
+pip install selenium==4.23.1 requests==2.32.3 PyPDF2==3.0.1 schedule==1.2.2 python-dotenv==1.0.1
 ```
 
 Lembre também de criar o seu bot Telegram usando o botFather. Obtenha seu TOKEN e CHAT_ID e inclua no techo conforme abaixo
