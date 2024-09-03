@@ -113,7 +113,7 @@ def enviar_mensagem_telegram(mensagem, caminho_arquivo):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     dados_mensagem = {"chat_id": CHAT_ID, "text": mensagem}
     try:
-        resposta_mensagem = requests.post(url, data=requisicao, timeout=10)
+        resposta_mensagem = requests.post(url, data=dados_mensagem, timeout=10)
         logging.info(f"Resposta API Telegram: {resposta_mensagem}")
         resposta_mensagem.raise_for_status()
         logging.info(f"Mensagem Telegram enviada para: {CHAT_ID}")
