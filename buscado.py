@@ -140,8 +140,8 @@ def enviar_email(mensagem):
         if caminho_arquivo:
             with open(caminho_arquivo, "rb") as arquivo_pdf:
                anexo = MIMEApplication(arquivo_pdf.read(), _subtype="pdf")
-                anexo.add_header('Content-Disposition', 'attachment', filename=os.path.basename(caminho_arquivo))
-                envio.attach(anexo) 
+               anexo.add_header('Content-Disposition', 'attachment', filename=os.path.basename(caminho_arquivo))
+               envio.attach(anexo) 
         # Conexão com servidor.
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
