@@ -14,6 +14,7 @@ import tkinter as tk
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.application import MIMEApplication
 
 # Configuração do logger
 pasta_log = "log"
@@ -122,13 +123,13 @@ def enviar_mensagem_telegram(mensagem, caminho_arquivo):
         with open(caminho_arquivo, "rb") as arquivo:
             arquivos = {"document": arquivo}
             resposta_arquivo = requests.post(url_arquivo, data={"chat_id: CHAT_ID"}, files=arquivos, timeout=10)
-            reposta_arquivo.raise_for_status()
+            resposta_arquivo.raise_for_status()
             logging.info(f"Arquivo Telegram enviado para: {CHAT_ID}")
     except requests.RequestException as erro:
         logging.error(f"Erro ao enviar mensagem Telegram: {erro}")
 
 # Função para envio de e-mail com PDF anexado.
-def enviar_email(mensagem):
+def enviar_email(mensagem, caminho_arquivo):
     try:
         envio = MIMEMultipart()
         envio["From"] = EMAIL
