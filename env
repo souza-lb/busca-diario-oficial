@@ -1,0 +1,6 @@
+NOME_BUSCA="Nome para Busca"
+TOKEN_TELEGRAM="Token do seu bot Telegram"
+CHAT_ID_TELEGRAM="ChatId do seu usuário Telegram"
+EMAIL_ENVIO="E-mail para envio de notificação"
+SENHA_EMAIL="Senha do E-mail para envio de notificação"
+EMAIL_DESTINO="E-mail para recepção de notificação"
