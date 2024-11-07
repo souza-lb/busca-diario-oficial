@@ -25,9 +25,9 @@ Lembre de incluir também dados da conta para envio de E-mail.
 Se você utiliza autenticação de dois fatores, crie uma senha específica para uso no app.
 
 ```
-EMAIL = "souzalb01@gmail.com"
+EMAIL = "email_envio@exemplo.com"
 SENHA_EMAIL = "evyk ifdk khdf zxwk" 
-EMAIL_DESTINATARIO = "souzalb@proton.me"
+EMAIL_DESTINATARIO = "email_destinatario@exemplo.com"
 ```
 
 Não esqueça de incluit também seu nome na busca.
