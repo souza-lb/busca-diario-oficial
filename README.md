@@ -14,6 +14,12 @@ Antes de rodar instale as bibliotecas listadas no arquivo dependencias.txt.
 pip install selenium==4.23.1 requests==2.32.3 PyPDF2==3.0.1 schedule==1.2.2 python-dotenv==1.0.1
 ```
 
+Pode ser tabém usando o arquivo de dependências diretamente:
+
+```bash
+pip install -r dependencias.txt
+```
+
 Lembre também de criar o seu bot Telegram usando o botFather. Obtenha seu TOKEN e CHAT_ID.
 Edite seu arquivo "env" de variáveis de ambiente conforme abaixo:
 
